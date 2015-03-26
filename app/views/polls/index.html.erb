@@ -6,7 +6,7 @@
 
 		<p>
 			<% if current_user %>
-				<%= link_to 'Join!', show_poll_path(poll), class: 'btn btn-primary btn-lg block' %>
+				<%= link_to 'Join!', poll_path(poll), class: 'btn btn-primary btn-lg block' %>
 			<% else %>
 				Please sign in via <%= link_to 'Facebook', '/auth/facebook' %> to paticipate in this poll.
 			<% end %>
