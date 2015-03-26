@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PollWebapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="navbar navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<%= link_to 'Home', root_path, class: 'navbar-brand' %>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><%= link_to 'Add new poll', new_poll_path %></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<% if current_user %>
+				<li><%= image_tag current_user.image_url, alt: current_user.name %></li>
+				<li><%= link_to 'Profile', user_path(current_user) %></li>
+				<li><%= link_to 'Logout', sign_out_path %></li>
+			<% else %>
+				<li><%= link_to 'Sign in', '/auth/facebook' %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+
+<div class="container">
+	<% flash.each do |key, value| %>
+		<div class="alert alert-<%= key %>">
+			<%= value %>
+		</div>
+	<% end %>
+
+	<div class="page-header">
+		<h1><%= yield :page_header %></h1>
+	</div>
+
+		<%= yield %>
+
+	</div>
+
+	<div id="footer">
+		<div class="container">
+			<p class="text-muted">Copyright by <a href="https://github.com/hiendinhngoc">Dinh Ngoc Hien</a></p>
+		</div>
+	</div>
+
+</body>
+</html>
