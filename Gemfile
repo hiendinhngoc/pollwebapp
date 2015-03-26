@@ -47,3 +47,14 @@ gem 'omniauth-facebook'
 #gem 'omniauth-twiter'
 
 gem 'counter_culture', '~> 0.1.23'
+group :development do
+  gem 'sqlite3'
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
