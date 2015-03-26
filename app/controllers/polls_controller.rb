@@ -33,7 +33,6 @@ class PollsController < ApplicationController
 
 	def show
 		@poll = Poll.includes(:vote_options).find_by_id(params[:id])
-		@vote = Vote.new
 	end
 
 	def destroy
