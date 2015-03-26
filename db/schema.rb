@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150325093425) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "polls", force: true do |t|
     t.text     "topic"
     t.datetime "created_at"
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150325093425) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["uid"], name: "index_users_on_uid"
+  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
   create_table "vote_options", force: true do |t|
     t.string   "title"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150325093425) do
     t.integer  "votes_count", default: 0, null: false
   end
 
-  add_index "vote_options", ["poll_id"], name: "index_vote_options_on_poll_id"
+  add_index "vote_options", ["poll_id"], name: "index_vote_options_on_poll_id", using: :btree
 
   create_table "votes", force: true do |t|
     t.integer  "user_id"
@@ -46,8 +49,8 @@ ActiveRecord::Schema.define(version: 20150325093425) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
-  add_index "votes", ["vote_option_id", "user_id"], name: "index_votes_on_vote_option_id_and_user_id", unique: true
-  add_index "votes", ["vote_option_id"], name: "index_votes_on_vote_option_id"
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+  add_index "votes", ["vote_option_id", "user_id"], name: "index_votes_on_vote_option_id_and_user_id", unique: true, using: :btree
+  add_index "votes", ["vote_option_id"], name: "index_votes_on_vote_option_id", using: :btree
 
 end
