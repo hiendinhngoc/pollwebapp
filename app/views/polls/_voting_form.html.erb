@@ -1,7 +1,7 @@
 <%= form_tag votes_path, method: :post, remote: true, id: 'voting_form' do %>
 	<%= hidden_field_tag 'poll[id]', @poll.id %>
 
-	<%= render partial: 'vote_option', collection: @poll.vote_options, as: :option %>
+	<%= render partial: 'polls/vote_option', collection: @poll.vote_options, as: :option %>
 
 	<p><b>Total votes: <%= @poll.vote_summary %></b></p>
 
