@@ -7,7 +7,6 @@
 
 	<% if current_user.voted_for?(@poll) %>
 		<p>You have already voted!</p>
-		<%= pie_chart @polls.group(:option).count %>
 	<% else %>
 		<%= submit_tag 'Vote', class: 'btn btn-lg btn-primary' %>
 	<% end %>
