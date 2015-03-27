@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 		end
 
 		def voted_for?(poll)
-			votes.any? {|v| v.vote_option.poll == poll }
+			vote_options(true).any? {|v| v.poll == poll }
 		end
 	end
 end
