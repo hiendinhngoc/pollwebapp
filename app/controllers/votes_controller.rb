@@ -1,4 +1,5 @@
  class VotesController < ApplicationController
+ 	# encoding: utf-8
 	def create
 		if current_user && params[:poll] && params[:poll][:id] && params[:vote_option] && params[:vote_option][:id]
 			@poll = Poll.find_by_id(params[:poll][:id])

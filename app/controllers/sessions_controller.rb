@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+	# encoding: utf-8
 	def create
 		user = User.from_omniauth(request.env['omniauth.auth'])
 		cookies[:user_id] = user.id
