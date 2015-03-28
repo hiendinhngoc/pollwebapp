@@ -1,9 +1,14 @@
 <div class="form-group">
+	<% arr = [] %>
+	<% a = 0 %>
 	<%= content_tag(:label) do %>
 		<% unless current_user.voted_for?(@poll) %>
 			<%= radio_button_tag 'vote_option[id]', option.id %>
 		<% end %>
 		<%= option.title %>
+		<% arr << option.title %>
 	<% end %>
 	<%= visualize_votes_for option %>
+	<% a = visualize_votes_for option %>
+	<%= pie_chart arr.group(a).count %>
 </div>
