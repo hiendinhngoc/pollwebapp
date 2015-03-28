@@ -20,3 +20,4 @@
 		</div>
 	</div>
 <% end %>
+<%= pie_chart VoteOption.group(:title).sum('votes_count') %>
