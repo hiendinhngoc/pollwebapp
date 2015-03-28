@@ -9,7 +9,7 @@ requite 'google_chart'
 	<% end %>
 	<%= visualize_votes_for option %>
 	<%= GoogleChart::PieChart.new('320x320', "Hello", false) do |chart| %>
-		<=% chart.data 'option.title', visualize_votes_for option %>
-		<=% puts chart.to_url %>
-	<=% end %>
+		<%= chart.data 'option.title', visualize_votes_for option %>
+		<%= puts chart.to_url %>
+	<% end %>
 </div>
