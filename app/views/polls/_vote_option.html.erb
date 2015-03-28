@@ -6,5 +6,5 @@
 		<%= option.title %>
 	<% end %>
 	<%= visualize_votes_for option %>
-	<%= pie_chart @poll.group(:title).count('votes') %>
+	<%= pie_chart @poll.poll_options.group(:title).count('votes') %>
 </div>
