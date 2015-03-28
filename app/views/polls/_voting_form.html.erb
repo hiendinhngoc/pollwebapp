@@ -3,7 +3,7 @@
 
 	<%= render partial: 'polls/vote_option', collection: @poll.vote_options, as: :option %>
 	<p><b>Total votes: <%= @poll.votes_summary %></b></p>
-
+	<%= pie_chart VoteOption.group(:title).sum('votes_count') %>
 	<% if current_user.voted_for?(@poll) %>
 		<p>You have already voted!</p>
 	<% else %>
