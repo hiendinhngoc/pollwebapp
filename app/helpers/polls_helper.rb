@@ -3,7 +3,8 @@ module PollsHelper
 		content_tag :div, class: 'progress' do
 			content_tag :div, class: 'progress-bar',
 					style: "width: #{option.poll.normalized_votes_for(option)}%" do
-				"#{option.votes.count}"
+				
+				<%= pie_chart VoteOption.group(:title).sum("#{option.votes.count}") %>
 			end
 		end
 	end
