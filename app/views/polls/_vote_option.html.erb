@@ -1,5 +1,3 @@
-<% require "rubygems"%>
-<% require "google_chart"%>
 <div class="form-group">
 	<%= content_tag(:label) do %>
 		<% unless current_user.voted_for?(@poll) %>
@@ -8,8 +6,4 @@
 		<%= option.title %>
 	<% end %>
 	<%= visualize_votes_for option %>
-	<%= GoogleChart::PieChart.new('320x320', "Hello", false) do |chart| %>
-		<% chart.data option.title, visualize_votes_for(option) %>
-		<%= chart.to_url %>
-	<% end %>
 </div>
