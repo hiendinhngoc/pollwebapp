@@ -18,6 +18,6 @@
 						method: :delete,
 						class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %>
 		</div>
-		<%= pie_chart VoteOption.group(:title).sum('votes_count') %>
+		<%= pie_chart VoteOption.group(:title).sum('option.votes.count') %>
 	</div>
 <% end %>
