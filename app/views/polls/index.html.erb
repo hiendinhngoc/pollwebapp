@@ -17,7 +17,7 @@
 			<%= link_to 'Delete', poll_path(poll),
 						method: :delete,
 						class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %>
+			<%= pie_chart VoteOption.group(:title).sum('votes_count') %>
 		</div>
 	</div>
 <% end %>
-<%= pie_chart VoteOption.group(:title).sum('votes_count') %>
