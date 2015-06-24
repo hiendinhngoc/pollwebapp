@@ -8,5 +8,4 @@
 	<% else %>
 		<%= submit_tag 'Vote', class: 'btn btn-lg btn-primary' %>
 	<% end %>
-	<%= pie_chart VoteOption.group(:title).sum('option.votes.count') %>
 <% end %>
