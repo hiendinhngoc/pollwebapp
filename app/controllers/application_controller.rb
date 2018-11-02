@@ -8,5 +8,7 @@ class ApplicationController < ActionController::Base
   	@current_user ||= User.find_by(id: cookies[:user_id]) if cookies[:user_id]
   end
 
+  p "helo"
+
   helper_method :current_user
 end
